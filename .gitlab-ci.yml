@@ -1,0 +1,96 @@
+---
+
+variables:
+  project: '$CI_PROJECT_NAME'
+  lxc: 'job$CI_JOB_ID'
+
+stages:
+  - test
+
+UbuntuXenial:
+  stage: test
+  before_script:
+  # Create ansible.cfg with correct roles_path
+  - printf '[defaults]\nroles_path=../' > ansible.cfg
+
+  # Create .lxdock.yml
+  - |
+    echo """
+    name: $project
+
+    containers:
+      - name: $lxc
+        image: ubuntu/xenial
+        hostnames:
+          - $lxc
+
+    provisioning:
+      - type: ansible
+        playbook: tests/UbuntuXenial.yml
+    """ > .lxdock.yml
+  
+  script:
+    # Basic role syntax check
+    - ansible-playbook tests/UbuntuXenial.yml -i tests/inventory --syntax-check
+
+    # Deploy lxdock project and run the role/playbook
+    - lxdock up
+
+    # Run the role/playbook again, checking to make sure it's idempotent
+    - >
+      lxdock provision
+      | grep -q 'changed=0.*failed=0'
+      && (echo 'Idempotence test: pass' && exit 0)
+      || (echo 'Idempotence test: fail' && exit 1)
+
+    # Check for role is done
+    # test login pages
+    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
+  
+  after_script:
+  - lxdock destroy -f
+
+UbuntuTrusty:
+  stage: test
+  before_script:
+  # Create ansible.cfg with correct roles_path
+  - printf '[defaults]\nroles_path=../' > ansible.cfg
+
+  # Create .lxdock.yml
+  - |
+    echo """
+    name: $project
+
+    containers:
+      - name: $lxc
+        image: ubuntu/trusty
+        hostnames:
+          - $lxc
+
+    provisioning:
+      - type: ansible
+        playbook: tests/UbuntuTrusty.yml
+    """ > .lxdock.yml
+
+  - cat .lxdock.yml
+  
+  script:
+    # Basic role syntax check
+    - ansible-playbook tests/UbuntuTrusty.yml -i tests/inventory --syntax-check
+
+    # Deploy lxdock project and run the role/playbook
+    - lxdock up
+
+    # Run the role/playbook again, checking to make sure it's idempotent
+    - >
+      lxdock provision
+      | grep -q 'changed=0.*failed=0'
+      && (echo 'Idempotence test: pass' && exit 0)
+      || (echo 'Idempotence test: fail' && exit 1)
+
+    # Check for role is done
+    # test login pages
+    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
+  
+  after_script:
+  - lxdock destroy -f
