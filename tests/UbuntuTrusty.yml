@@ -8,11 +8,11 @@
       when: ansible_os_family == 'Debian'
       changed_when: false
     
-    - name: Install testing packages
-      apt:
+    - name: Install required testing packages
+      package:
         name: "{{ item }}"
-        state: present
-      with_item:
+        state: installed
+      with_items:
         - curl
 
   roles:
