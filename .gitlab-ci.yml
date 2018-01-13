@@ -6,13 +6,10 @@ variables:
   lxc: 'job$CI_JOB_ID'
 
 stages:
-  - BackendDB_mairiadb
-  - BackendDB_mysql
-  - BackendDB_psql
-  - WebServer_Nginx
+  - Test
 
 UbuntuXenialMariadb:
-  stage: BackendDB_mairiadb
+  stage: Test
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -60,7 +57,7 @@ UbuntuXenialMariadb:
   - lxdock destroy -f
 
 UbuntuXenialMysql:
-  stage: BackendDB_mysql
+  stage: Test
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -108,7 +105,7 @@ UbuntuXenialMysql:
   - lxdock destroy -f
 
 UbuntuXenialPsql:
-  stage: BackendDB_psql
+  stage: Test
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -156,7 +153,7 @@ UbuntuXenialPsql:
   - lxdock destroy -f
 
 UbuntuXenial:
-  stage: WebServer_Nginx
+  stage: Test
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -200,7 +197,7 @@ UbuntuXenial:
   - lxdock destroy -f
 
 UbuntuTrustyMariadb:
-  stage: BackendDB_mairiadb
+  stage: Test
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -244,7 +241,7 @@ UbuntuTrustyMariadb:
   - lxdock destroy -f
 
 UbuntuTrustyMysql:
-  stage: BackendDB_mysql
+  stage: Test
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -288,7 +285,7 @@ UbuntuTrustyMysql:
   - lxdock destroy -f
 
 UbuntuTrustyPsql:
-  stage: BackendDB_psql
+  stage: Test
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -332,7 +329,7 @@ UbuntuTrustyPsql:
   - lxdock destroy -f
 
 UbuntuTrusty:
-  stage: WebServer_Nginx
+  stage: Test
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
