@@ -45,13 +45,13 @@ UbuntuXenialMariadb:
       || (echo 'Idempotence test: fail' && exit 1)
 
     # Check for role is done
-    - lxdock shell $lxc -c nestat -ntulp
-    # - lxdock shell $lxc -c nestat -ntulp | grep -q apache2
-    # - lxdock shell $lxc -c nestat -ntulp | grep -q mariadb
-    # - lxdock shell $lxc -c nestat -ntulp | grep -q redis
+    - lxdock shell $lxc -c netstat -ntulp
+    # - lxdock shell $lxc -c netstat -ntulp | grep -q apache2
+    # - lxdock shell $lxc -c netstat -ntulp | grep -q mariadb
+    # - lxdock shell $lxc -c netstat -ntulp | grep -q redis
 
     # test login pages
-    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
+    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep "Location:.*/apps/files/"
   
   after_script:
   - lxdock destroy -f
@@ -93,13 +93,13 @@ UbuntuXenialMysql:
       || (echo 'Idempotence test: fail' && exit 1)
 
     # Check for role is done
-    - lxdock shell $lxc -c nestat -ntulp
-    # - lxdock shell $lxc -c nestat -ntulp | grep -q apache2
-    # - lxdock shell $lxc -c nestat -ntulp | grep -q mysql
-    # - lxdock shell $lxc -c nestat -ntulp | grep -q redis
+    - lxdock shell $lxc -c netstat -ntulp
+    # - lxdock shell $lxc -c netstat -ntulp | grep -q apache2
+    # - lxdock shell $lxc -c netstat -ntulp | grep -q mysql
+    # - lxdock shell $lxc -c netstat -ntulp | grep -q redis
 
     # test login pages
-    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
+    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep "Location:.*/apps/files/"
   
   after_script:
   - lxdock destroy -f
@@ -141,13 +141,13 @@ UbuntuXenialPsql:
       || (echo 'Idempotence test: fail' && exit 1)
 
     # Check for role is done
-    - lxdock shell $lxc -c nestat -ntulp
-    # - lxdock shell $lxc -c nestat -ntulp | grep -q apache2
-    # - lxdock shell $lxc -c nestat -ntulp | grep -q psql
-    # - lxdock shell $lxc -c nestat -ntulp | grep -q redis
+    - lxdock shell $lxc -c netstat -ntulp
+    # - lxdock shell $lxc -c netstat -ntulp | grep -q apache2
+    # - lxdock shell $lxc -c netstat -ntulp | grep -q psql
+    # - lxdock shell $lxc -c netstat -ntulp | grep -q redis
 
     # test login pages
-    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
+    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep "Location:.*/apps/files/"
   
   after_script:
   - lxdock destroy -f
@@ -189,9 +189,9 @@ UbuntuXenial:
       || (echo 'Idempotence test: fail' && exit 1)
 
     # Check for role is done
-    - lxdock shell $lxc -c nestat -ntulp
+    - lxdock shell $lxc -c netstat -ntulp
     # test login pages
-    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
+    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep "Location:.*/apps/files/"
   
   after_script:
   - lxdock destroy -f
@@ -233,9 +233,9 @@ UbuntuTrustyMariadb:
       || (echo 'Idempotence test: fail' && exit 1)
 
     # Check for role is done
-    - lxdock shell $lxc -c nestat -ntulp
+    - lxdock shell $lxc -c netstat -ntulp
     # test login pages
-    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
+    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep "Location:.*/apps/files/"
   
   after_script:
   - lxdock destroy -f
@@ -277,9 +277,9 @@ UbuntuTrustyMysql:
       || (echo 'Idempotence test: fail' && exit 1)
 
     # Check for role is done
-    - lxdock shell $lxc -c nestat -ntulp
+    - lxdock shell $lxc -c netstat -ntulp
     # test login pages
-    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
+    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep "Location:.*/apps/files/"
   
   after_script:
   - lxdock destroy -f
@@ -321,9 +321,9 @@ UbuntuTrustyPsql:
       || (echo 'Idempotence test: fail' && exit 1)
 
     # Check for role is done
-    - lxdock shell $lxc -c nestat -ntulp
+    - lxdock shell $lxc -c netstat -ntulp
     # test login pages
-    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
+    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep "Location:.*/apps/files/"
   
   after_script:
   - lxdock destroy -f
@@ -365,9 +365,9 @@ UbuntuTrusty:
       || (echo 'Idempotence test: fail' && exit 1)
 
     # Check for role is done
-    - lxdock shell $lxc -c nestat -ntulp
+    - lxdock shell $lxc -c netstat -ntulp
     # test login pages
-    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
+    - lxdock shell $lxc -c curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep "Location:.*/apps/files/"
   
   after_script:
   - lxdock destroy -f
