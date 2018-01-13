@@ -1,6 +1,7 @@
 ---
 
 variables:
+  LXD_DIR: "/var/snap/lxd/common/lxd/"
   project: '$CI_PROJECT_NAME'
   lxc: 'job$CI_JOB_ID'
 
