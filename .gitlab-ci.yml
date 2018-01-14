@@ -11,7 +11,7 @@ stages:
 
 # Ubuntu Xenial
 UbuntuXenialMariadb:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -59,7 +59,7 @@ UbuntuXenialMariadb:
   - lxdock destroy -f
 
 UbuntuXenialMysql:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -107,7 +107,7 @@ UbuntuXenialMysql:
   - lxdock destroy -f
 
 UbuntuXenialPsql:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -155,7 +155,7 @@ UbuntuXenialPsql:
   - lxdock destroy -f
 
 UbuntuXenialNginx:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -204,7 +204,7 @@ UbuntuXenialNginx:
 
 # Ubuntu Trusty
 UbuntuTrustyMariadb:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -252,7 +252,7 @@ UbuntuTrustyMariadb:
   - lxdock destroy -f
 
 UbuntuTrustyMysql:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -300,7 +300,7 @@ UbuntuTrustyMysql:
   - lxdock destroy -f
 
 UbuntuTrustyPsql:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -348,7 +348,7 @@ UbuntuTrustyPsql:
   - lxdock destroy -f
 
 # UbuntuTrustyNgnix:
-#   stage: Role Test
+#   stage: "Role Test"
 #   before_script:
 #   # Create ansible.cfg with correct roles_path
 #   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -397,7 +397,7 @@ UbuntuTrustyPsql:
 
 # Debian Stretch
 DebianStretchMariadb:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -445,7 +445,7 @@ DebianStretchMariadb:
   - lxdock destroy -f
 
 DebianStretchMysql:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -493,7 +493,7 @@ DebianStretchMysql:
   - lxdock destroy -f
 
 DebianStretchPsql:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -541,7 +541,7 @@ DebianStretchPsql:
   - lxdock destroy -f
 
 DebianStretchNginx:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -590,7 +590,7 @@ DebianStretchNginx:
 
 # Debian Jessie
 DebianJessieMariadb:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -638,7 +638,7 @@ DebianJessieMariadb:
   - lxdock destroy -f
 
 DebianJessieMysql:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -686,7 +686,7 @@ DebianJessieMysql:
   - lxdock destroy -f
 
 DebianJessiePsql:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
@@ -734,7 +734,7 @@ DebianJessiePsql:
   - lxdock destroy -f
 
 DebianJessieNgnix:
-  stage: Role Test
+  stage: "Role Test"
   before_script:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
