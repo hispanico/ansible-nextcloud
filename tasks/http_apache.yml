@@ -35,6 +35,8 @@
   when: ansible_distribution_release == "trusty"
 
 - name: "[APACHE] -  enable APC for php CLI"
+  when:
+    - not ansible_check_mode
   lineinfile:
     dest: "{{ php_dir }}/cli/php.ini"
     line: "apc.enable_cli = 1"
@@ -43,6 +45,8 @@
     # validate: "/usr/sbin/{{ php_bin }} -t #%s"
 
 - name: "[APACHE] -  enable PHP OPcache for php.ini"
+  when:
+    - not ansible_check_mode
   lineinfile:
     dest: "{{ php_dir }}/apache2/php.ini"
     state: present
