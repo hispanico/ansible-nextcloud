@@ -6,7 +6,7 @@ variables:
   lxc: 'job$CI_JOB_ID'
 
 stages:
-  - Rule Test
+  - Role Test
 
 # Ubuntu Xenial
 UbuntuXenialMariadb:
