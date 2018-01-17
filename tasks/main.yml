@@ -24,17 +24,17 @@
   include_tasks: tasks/http_apache.yml
   when: nextcloud_install_websrv and nextcloud_websrv in ["apache", "apache2"]
 
-- name: Configure Redis server
-  include_tasks: tasks/redis_server.yml
-  when: nextcloud_install_redis_server
-
-- name: Configure {{ nextcloud_db_backend }} database
+- name: Configure Mysql/Mariadb database
   include_tasks: tasks/db_mysql.yml
   when: nextcloud_install_db and nextcloud_db_backend in ["mysql", "mariadb"]
 
 - name: Configure PostgreSQL database
   include_tasks: tasks/db_postgresql.yml
   when: nextcloud_install_db and nextcloud_db_backend in ["pgsql"]
+
+- name: Configure Redis server
+  include_tasks: tasks/redis_server.yml
+  when: nextcloud_install_redis_server
 
 - name: Check Nextcloud installed
   stat: "path={{ nextcloud_webroot }}/index.php"
