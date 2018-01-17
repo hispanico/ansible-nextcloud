@@ -9,9 +9,9 @@
       apt: update_cache=yes cache_valid_time=600
       when: ansible_os_family == 'Debian'
       changed_when: false
-        
+
   vars:
-     nextcloud_db_backend: "pgsql"
+     nextcloud_db_backend: "mysql"
      nextcloud_version_major: 10
      nextcloud_apps:
        files_external: "" #enable files_external which is already installed in nexcloud
