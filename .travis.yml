@@ -19,8 +19,7 @@ before_install:
   - sudo pip install -I "ansible==$ansible_version"
   
   # Remove postgresql pre-installed version
-  - sudo dpkg -l | grep sql
-  #- sudo apt-get purge postgresql
+  - sudo apt-get purge postgresql*
 
 install:
   # Check ansible version
