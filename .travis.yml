@@ -4,10 +4,19 @@ python: "2.7"
 os: linux
 dist: trusty
 env:
-  - ansible_version="2.4.0.0"
+  - nextcloud_db_backend="mysql"
+    ansible_version="2.4.2.0"
+  - nextcloud_db_backend="mariadb"
+    ansible_version="2.4.2.0"
+  - nextcloud_db_backend="psql"
+    ansible_version="2.4.2.0"
+  - nextcloud_websrv="nginx"
+    ansible_version="2.4.2.0"
+
+  # - ansible_version="2.4.0.0"
     
-  - ansible_version="2.4.1.0"
-  - ansible_version="2.4.2.0"
+  # - ansible_version="2.4.1.0"
+  # - ansible_version="2.4.2.0"
 
 sudo: required
 
@@ -34,10 +43,10 @@ install:
 
 script:
   # Basic role syntax check
-  - ansible-playbook tests/nextcloud10_psql.yml -i tests/inventory --syntax-check
+  - ansible-playbook tests/nextcloud10_$nextcloud_db_backend.yml -i tests/inventory --syntax-check
 
   # Test Demo case 1
-  - ansible-playbook tests/nextcloud10_psql.yml -i tests/inventory
+  - ansible-playbook tests/nextcloud10_$nextcloud_db_backend.yml -i tests/inventory
   # test login pages
   - curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
 

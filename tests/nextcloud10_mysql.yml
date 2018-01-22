@@ -14,6 +14,14 @@
         state: installed
       with_items:
         - curl
+    
+    - name: Remove default travis databases
+      package:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - postgresql*
+        - mysql*
 
   roles:
     - ansible-nextcloud
