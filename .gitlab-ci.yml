@@ -1,5 +1,19 @@
 ---
 
+stages:
+  - Role Test
+
+# Ubuntu Xenial
+AnsibleSyntaxCheck:
+  stage: Role Test
+  before_script:
+  # Create ansible.cfg with correct roles_path
+  - printf '[defaults]\nroles_path=../' > ansible.cfg
+
+  script:
+    # Basic role syntax check
+    - ansible-playbook tests/nextcloud_mariadb.yml -i tests/inventory --syntax-check
+
 # variables:
 #   LXD_DIR: "/var/snap/lxd/common/lxd/"
 #   project: '$CI_PROJECT_NAME'
