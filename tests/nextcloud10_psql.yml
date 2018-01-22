@@ -15,6 +15,13 @@
       with_items:
         - curl
 
+    - name: Uninstall not required packages
+      package:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - postgresql
+
   roles:
     - ansible-nextcloud
 
