@@ -21,6 +21,7 @@ before_install:
   # Stop postgresql pre-installed version
   - sudo netstat -ntulp
   - sudo dpkg -l |grep postgres
+  - sudo apt-get purge postgresql*
 
 install:
   # Check ansible version
