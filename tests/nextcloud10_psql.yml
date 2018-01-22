@@ -20,7 +20,7 @@
         name: "{{ item }}"
         state: absent
       with_items:
-        - postgresql
+        - postgresql*
 
   roles:
     - ansible-nextcloud
