@@ -12,7 +12,6 @@
         
   vars:
      nextcloud_db_backend: "pgsql"
-     nextcloud_db_pwd: "secret"
      nextcloud_version_major: 10
      nextcloud_apps:
        files_external: "" #enable files_external which is already installed in nexcloud
