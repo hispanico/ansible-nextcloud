@@ -20,7 +20,6 @@ before_install:
   
   # Stop postgresql pre-installed version
   - sudo netstat -ntulp
-  - sudo dpkg -l |grep postgres
   - sudo apt-get purge postgresql* -y
   - sudo dpkg -l |grep postgres
   - sudo netstat -ntulp
@@ -37,9 +36,9 @@ script:
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
 
   # Test Demo case 1
-  # - ansible-playbook tests/test.yml -i tests/inventory
-  # # test login pages
-  # - curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
+  - ansible-playbook tests/test.yml -i tests/inventory
+  # test login pages
+  - curl -i -s --insecure --data "user=ncadmin&password=" https://localhost/index.php/login | egrep -q "Location:.*/apps/files/"
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
